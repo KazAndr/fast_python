@@ -1,0 +1,9 @@
+Команды создания враппера через SWIG
+
+swig -python example.i
+
+g++ -c -fPIC ./example.c ./example_wrap.c -I "/usr/include/python3.4m"
+
+g++ -shared ./example.o ./example_wrap.o -o _example.so
+
+На данный момент предполагается, что файлы example.py и _example.so являются единственно действующими, которые в дальнейшем будут использваться программами. Но данное утверждение еще следует проверить.
